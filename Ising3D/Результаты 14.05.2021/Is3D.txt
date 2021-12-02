@@ -1,0 +1,92 @@
+0.56 300 0 started!
+0.59 100 0 started!
+0.62 300 0 started!
+0.55 100 0 started!
+0.58 300 0 started!
+0.57 300 0 started!
+0.62 100 0 started!
+0.58 100 0 started!
+0.6 300 0 started!
+0.61 300 0 started!
+0.56 100 0 started!
+0.57 100 0 started!
+0.54 300 0 started!
+0.55 300 0 started!
+0.52 300 0 started!
+0.53 100 0 started!
+0.54 100 0 started!
+0.61 100 0 started!
+0.59 300 0 started!
+0.53 300 0 started!
+0.6 100 0 started!
+0.52 100 0 started!
+0.51 300 0 started!
+0.51 100 0 started!
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** STEP 276763.5 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.6 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.11 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.0 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.1 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.18 ON cn-036 CANCELLED AT 2021-05-11T18:14:45 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.13 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.17 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 276763 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.2 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.19 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.20 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.7 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.23 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.22 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.21 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.10 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.4 ON cn-036 CANCELLED AT 2021-05-11T18:14:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.9 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.16 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.8 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.14 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.12 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.15 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 276763.3 ON cn-036 CANCELLED AT 2021-05-11T18:14:47 DUE TO TIME LIMIT ***
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated
+srun: error: cn-036: task 0: Terminated

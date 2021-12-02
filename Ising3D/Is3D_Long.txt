@@ -1,0 +1,81 @@
+ibwarn: [72430] mad_rpc_open_port: can't open UMAD port ((null):0)
+0.1 600 0 started!
+0.2 600 0 started!
+0.3 600 0 started!
+0.4 600 0 started!
+0.57 600 0 started!
+0.48 600 0 started!
+0.5 600 0 started!
+0.47 600 0 started!
+0.54 600 0 started!
+0.51 600 0 started!
+0.53 600 0 started!
+0.49 600 0 started!
+0.9 600 0 started!
+0.52 600 0 started!
+0.55 600 0 started!
+0.56 600 0 started!
+0.8 600 0 started!
+0.6 600 0 started!
+0.7 600 0 started!
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.2
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.0
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.7
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.1
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.8
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.16
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.10
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.14
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.17
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.15
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.6
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.13
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.3
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.9
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.18
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.11
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.12
+srun: error: cn-040: task 0: Killed
+srun: Force Terminated job step 351355.5
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Failure when receiving data from the peer
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Failure when receiving data from the peer
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Failure when receiving data from the peer
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Server returned nothing (no headers, no data)
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Server returned nothing (no headers, no data)
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Failure when receiving data from the peer
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Failure when receiving data from the peer
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** JOB 351355 ON cn-040 CANCELLED AT 2021-08-25T16:13:18 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351355.4 ON cn-040 CANCELLED AT 2021-08-25T16:13:18 DUE TO TIME LIMIT ***
+srun: error: cn-040: task 0: Terminated

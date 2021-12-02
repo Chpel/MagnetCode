@@ -1,0 +1,12 @@
+The program has started: size = 400, CoefXY = 1, OpenQ = 0
+The program has started: size = 400, CoefXY = 0.875, OpenQ = 0
+##########
+Pre-simulations are done.
+##########
+Pre-simulations are done.
+##########
+All simulations are done. Analysis of observable measures starts...
+Done!
+##########
+All simulations are done. Analysis of observable measures starts...
+Done!

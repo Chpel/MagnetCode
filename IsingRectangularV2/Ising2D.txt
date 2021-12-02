@@ -1,0 +1,12 @@
+For size = 10, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: program has started!
+For size = 28, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: program has started!
+For size = 40, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: program has started!
+For size = 57, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: program has started!
+For size = 10, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: presimulations are done!
+For size = 28, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: presimulations are done!
+For size = 40, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: presimulations are done!
+For size = 57, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: presimulations are done!
+For size = 10, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: Done!
+For size = 28, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: Done!
+For size = 40, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: Done!
+For size = 57, J = 0.6673, OpenQ = 1 , CoefXY = 0.473: Done!

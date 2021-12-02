@@ -1,0 +1,146 @@
+0.2 100 0 started!
+0.1 100 0 started!
+0.3 100 0 started!
+0.57 100 0 started!
+0.56 100 0 started!
+0.54 100 0 started!
+0.55 100 0 started!
+0.53 100 0 started!
+0.52 100 0 started!
+0.47 100 0 started!
+0.6 100 0 started!
+0.51 100 0 started!
+0.5 100 0 started!
+0.48 100 0 started!
+0.49 100 0 started!
+0.4 100 0 started!
+0.8 100 0 started!
+0.7 100 0 started!
+0.9 100 0 started!
+0.2 300 0 started!
+0.1 300 0 started!
+0.54 300 0 started!
+0.3 300 0 started!
+0.52 300 0 started!
+0.48 300 0 started!
+0.47 300 0 started!
+0.56 300 0 started!
+0.4 300 0 started!
+0.5 300 0 started!
+0.49 300 0 started!
+0.57 300 0 started!
+0.53 300 0 started!
+0.55 300 0 started!
+0.51 300 0 started!
+0.6 300 0 started!
+0.7 300 0 started!
+0.8 300 0 started!
+0.9 300 0 started!
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** STEP 351353.19 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.12 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.28 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.23 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.3 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.2 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.24 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.4 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.17 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.29 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.11 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.14 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.6 ON cn-040 CANCELLED AT 2021-08-21T16:09:25 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.34 ON cn-040 CANCELLED AT 2021-08-21T16:09:26 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.5 ON cn-040 CANCELLED AT 2021-08-21T16:09:26 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.27 ON cn-040 CANCELLED AT 2021-08-21T16:09:26 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.13 ON cn-040 CANCELLED AT 2021-08-21T16:09:26 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.16 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.35 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.7 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.21 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.1 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.30 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.26 ON cn-040 CANCELLED AT 2021-08-21T16:09:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.20 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.33 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.31 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.25 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.32 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.22 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.0 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 351353 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.10 ON cn-040 CANCELLED AT 2021-08-21T16:09:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.15 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.37 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.9 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.36 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.8 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 351353.18 ON cn-040 CANCELLED AT 2021-08-21T16:09:29 DUE TO TIME LIMIT ***
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
+srun: error: cn-040: task 0: Terminated
