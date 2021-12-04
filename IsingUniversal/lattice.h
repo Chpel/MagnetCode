@@ -16,8 +16,8 @@ long long int int_pow(int lattice_side, int d);
 class Lattice {
 public:
 	int lattice_side; //длина стороны решётки
-	std::valarray<long int> map_of_contacts_int;
-	std::vector<std::valarray<long int>> coords;
+	std::valarray<unsigned long> map_of_contacts_int;
+	std::vector<std::valarray<unsigned short>> coords;
     virtual int ndim() = 0; //число соседей узла
     virtual int d() = 0; //размерность пространства
 	virtual void create_lattice(long int max_seq_size = 100) = 0;
@@ -31,8 +31,7 @@ class Square_Lattice_2D : public Lattice {
         map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
         coords.resize(d());
         for (int i = 0; i < d(); i++) {
-            coords[i].resize(int_pow(lattice_side, d()) * ndim());
-            coords[i].resize(int_pow(lattice_side, d()) * ndim());
+            coords[i].resize(int_pow(lattice_side, d()));
         }
         long int x, y;
         div_t n;
@@ -70,7 +69,7 @@ class Square_Lattice_3D : public Lattice {
         map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
         coords.resize(d());
         for (int i = 0; i < d(); i++) {
-            coords[i].resize(int_pow(lattice_side, d()) * ndim());
+            coords[i].resize(int_pow(lattice_side, d()));
         }
         long int x, y, z;
         div_t n;
@@ -118,7 +117,7 @@ class Triangle_Lattice_2D : public Lattice {
         map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
         coords.resize(d());
         for (int i = 0; i < d(); i++) {
-            coords[i].resize(int_pow(lattice_side, d()) * ndim());
+            coords[i].resize(int_pow(lattice_side, d()));
         }
         lattice_side = max_seq_size;
         //создается одномерный массив соседей на квадратной решетке
@@ -180,7 +179,7 @@ class Square_Lattice_4D : public Lattice {
         map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
         coords.resize(d());
         for (int i = 0; i < d(); i++) {
-            coords[i].resize(int_pow(lattice_side, d()) * ndim());
+            coords[i].resize(int_pow(lattice_side, d()));
         }
         long int x, y, z, t;
         div_t n;
