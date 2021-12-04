@@ -11,7 +11,7 @@
 #include <set>
 #include "observable.h"
 
-long long int int_pow(int lattice_side, int d);
+unsigned long long int int_pow(int lattice_side, int d);
 
 class Lattice {
 public:
@@ -35,7 +35,7 @@ class Square_Lattice_2D : public Lattice {
         }
         long int x, y;
         div_t n;
-        for (long int i = 0; i < int_pow(lattice_side, d()); i++) {
+        for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
             map_of_contacts_int[ndim() * i] = i + 1;
             map_of_contacts_int[ndim() * i + 1] = i - 1;
             map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
@@ -73,7 +73,7 @@ class Square_Lattice_3D : public Lattice {
         }
         long int x, y, z;
         div_t n;
-        for (long int i = 0; i < int_pow(lattice_side, d()); i++) {
+        for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
             map_of_contacts_int[ndim() * i] = i + 1;
             map_of_contacts_int[ndim() * i + 1] = i - 1;
             map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
@@ -123,7 +123,7 @@ class Triangle_Lattice_2D : public Lattice {
         //создается одномерный массив соседей на квадратной решетке
         long int x, y;
         div_t n;
-        for (long int i = 0; i < int_pow(lattice_side, d()); i++) {
+        for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
             map_of_contacts_int[ndim() * i] = i + 1;
             map_of_contacts_int[ndim() * i + 1] = i - 1;
             map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
@@ -181,9 +181,9 @@ class Square_Lattice_4D : public Lattice {
         for (int i = 0; i < d(); i++) {
             coords[i].resize(int_pow(lattice_side, d()));
         }
-        long int x, y, z, t;
+        unsigned short x, y, z, t;
         div_t n;
-        for (long int i = 0; i < int_pow(lattice_side, d()); i++) {
+        for (unsigned long i = 0; i < int_pow(lattice_side, d()); i++) {
             map_of_contacts_int[ndim() * i] = i + 1;
             map_of_contacts_int[ndim() * i + 1] = i - 1;
             map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
