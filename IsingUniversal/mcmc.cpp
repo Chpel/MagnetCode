@@ -336,7 +336,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
 
     //std::uniform_int_distribution<long int> distribution_spin(0, number_of_monomers-1);
-    std::uniform_int_distribution<long int> distribution_spin(0, int_pow(lattice->lattice_side, lattice->d()) - 1);
+    std::uniform_int_distribution<unsigned long int> distribution_spin(0, int_pow(lattice->lattice_side, lattice->d()) - 1);
     //std::mt19937 generator_spin(123);
     std::random_device generator_spin;
 
@@ -535,7 +535,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
         }
         else {
 
-            long int coord = distribution_spin(generator_spin);
+            unsigned long int coord = distribution_spin(generator_spin);
 
             if (sequence_on_lattice[coord] != 0)
             { //вероятность такого события 1/n, делаем кластерный апдейт
@@ -544,7 +544,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                 std::valarray<bool> used_coords;
                 used_coords.resize(int_pow(lattice->lattice_side,lattice->d()), false);
 
-                std::queue<long int> Cluster;
+                std::queue<unsigned long int> Cluster;
 
                 Cluster.push(coord);
                 used_coords[coord] = true;
