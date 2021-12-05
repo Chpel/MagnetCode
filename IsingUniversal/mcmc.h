@@ -17,8 +17,6 @@
 #include "observable.h"
 #include "lattice.h"
 
-typedef unsigned long int coord_t;
-
 
 class Protein {
 public:
