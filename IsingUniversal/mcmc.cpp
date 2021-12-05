@@ -88,7 +88,7 @@ Protein::Protein(long int n, std::string l) {
 void Protein::count_contacts()
 {
     long int hh = 0;
-    long int current_position = start_conformation;
+    coord_t current_position = start_conformation;
     coord_t  step;
     long int mag = 0;
     for (int i = 0; i < number_of_monomers; i++) {
@@ -177,8 +177,8 @@ void Protein::calc_bulk()
         bulk_now[dm - 2] = 0;
     }
 
-    long int current = start_conformation;
-    long int step;
+    coord_t current = start_conformation;
+    coord_t step;
     int k = 0;
     for (int e = 0; e < number_of_monomers; e++)
     {
@@ -226,10 +226,10 @@ void Protein::Reconnect(int j) {
     //             {2, 3, 1, 0}, //270
     //             {0, 1, 2, 3}
     //            };
-    long int c;
+    coord_t c;
 
-    long int step = lattice->map_of_contacts_int[lattice->ndim() * end_conformation + j];
-    long int new_end = next_monomers[step];
+    coord_t step = lattice->map_of_contacts_int[lattice->ndim() * end_conformation + j];
+    coord_t new_end = next_monomers[step];
 
     next_monomers[step] = end_conformation;
 
@@ -273,7 +273,7 @@ void Protein::Reconnect(int j) {
         directions[c] = inverse_steps[directions[new_c]];
         c = new_c;
     }
-    long int temp_prev_next = next_monomers[new_end];
+    coord_t temp_prev_next = next_monomers[new_end];
 
 
     previous_monomers[end_conformation] = step;
@@ -329,14 +329,14 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
     double typeOfUpdate; //0 - простой; 1 - реконнект
     long int step;
     int step_on_lattice;//выбор одного из соседей
-    long int new_point;
+    coord_t new_point; //номер новой точки в цепочке
     long int new_E, new_H;
     int hh;
-    long int temp, del, oldspin;
+    coord_t temp, del, oldspin;
 
 
     //std::uniform_int_distribution<long int> distribution_spin(0, number_of_monomers-1);
-    std::uniform_int_distribution<unsigned long int> distribution_spin(0, int_pow(lattice->lattice_side, lattice->d()) - 1);
+    std::uniform_int_distribution<coord_t> distribution_spin(0, int_pow(lattice->lattice_side, lattice->d()) - 1);
     //std::mt19937 generator_spin(123);
     std::random_device generator_spin;
 
@@ -706,7 +706,7 @@ void Protein::radius_gyration()
 
 
     long double r_g = 0;
-    long int current = start_conformation;
+    unsigned long int current = start_conformation;
     long double y = 0, x = 0;
     long double point1x = 0, point1y = 0;
     std::vector<long int> point1;
@@ -724,7 +724,7 @@ void Protein::radius_gyration()
     long int point1xs, point1ys;
     std::vector<long int> point1s;
     point1s.resize(lattice->d(), 0);
-    long second_current;
+    unsigned long second_current;
     for (int e = 0; e < number_of_monomers; e++)
     {
         second_current = start_conformation;

@@ -17,7 +17,7 @@
 #include "observable.h"
 #include "lattice.h"
 
-typedef long int coord_t;
+typedef unsigned long int coord_t;
 
 
 class Protein {
@@ -55,10 +55,10 @@ public:
     std::valarray<int> directions; //их n-1;
     //если в directions[10] стоит 0, значит, двигаемся вправо из координаты 10
 
-    std::valarray< int> sequence_on_lattice;
-    std::valarray<long int> next_monomers;
-    std::valarray<long int> previous_monomers;
-    long int end_conformation = 0, start_conformation = 0;
+    std::valarray<char> sequence_on_lattice;
+    std::valarray<coord_t> next_monomers;
+    std::valarray<coord_t> previous_monomers;
+    coord_t end_conformation = 0, start_conformation = 0;
 
     std::queue<long int>  spins_in_cluster;
 
