@@ -87,7 +87,7 @@ Protein::Protein(long int n, std::string l) {
 
 void Protein::count_contacts()
 {
-	std::cout << "count_contacts started!" << std::endl;
+	std::cout << "c_c" << std::endl;
     long int hh = 0;
     coord_t current_position = start_conformation;
     coord_t  step;
@@ -123,7 +123,7 @@ bool Protein::IsEndInStuck()
 }
 
 void Protein::Reconnect1(int j) {
-	std::cout << "Reconnect1 started!" << std::endl;
+	std::cout << "R1" << std::endl;
     int inverse_steps[4] = { 1, 0, 3, 2 };
     int reflect_directions[4][4] =
     { {3, 2, 0, 1}, //90
@@ -175,7 +175,7 @@ void Protein::Reconnect1(int j) {
 
 void Protein::calc_bulk()
 {
-	std::cout << "calc_bulk started!" << std::endl;
+	std::cout << "c_b" << std::endl;
     for (int dm = 2; dm <= lattice->ndim(); dm++) {
         bulk_now[dm - 2] = 0;
     }
@@ -213,7 +213,7 @@ void Protein::calc_bulk()
 
 
 void Protein::Reconnect(int j) {
-	std::cout << "Reconnect started!" << std::endl;
+	std::cout << "R" << std::endl;
     std::vector<int> inverse_steps;
     inverse_steps.resize(lattice->ndim());
     for (int dm = 0; dm < lattice->ndim(); dm++) {
