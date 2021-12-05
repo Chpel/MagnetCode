@@ -13,6 +13,8 @@
 
 unsigned long long int int_pow(int lattice_side, int d);
 
+typedef unsigned long int coord_t;
+
 class Lattice {
 public:
 	int lattice_side; //длина стороны решётки
