@@ -82,7 +82,7 @@ Protein::Protein(long int n, std::string l) {
 
     bulk_now[0] = number_of_monomers - 2;
 
-	std::cout << l << " lattice is ready!" << endl;
+	std::cout << l << " lattice is ready!" << std::endl;
 }
 
 void Protein::count_contacts()
