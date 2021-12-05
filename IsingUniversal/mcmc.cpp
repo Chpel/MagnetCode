@@ -88,8 +88,8 @@ Protein::Protein(long int n, std::string l) {
 void Protein::count_contacts()
 {
     long int hh = 0;
-    coord_t current_position = start_conformation;
-    coord_t  step;
+    coord_check_t current_position = start_conformation;
+    coord_t step;
     long int mag = 0;
     for (int i = 0; i < number_of_monomers; i++) {
         for (int j = 0; j < lattice->ndim(); j++) {
@@ -111,7 +111,7 @@ void Protein::count_contacts()
 bool Protein::IsEndInStuck()
 {
     int hh = 0;
-    coord_t  step;
+    coord_t step;
     for (int j = 0; j < lattice->ndim(); j++) {
         step = lattice->map_of_contacts_int[lattice->ndim() * end_conformation + j];
         if (sequence_on_lattice[step] != 0) {
@@ -177,7 +177,7 @@ void Protein::calc_bulk()
         bulk_now[dm - 2] = 0;
     }
 
-    coord_t current = start_conformation;
+    coord_check_t current = start_conformation;
     coord_t step;
     int k = 0;
     for (int e = 0; e < number_of_monomers; e++)
@@ -708,7 +708,7 @@ void Protein::radius_gyration()
 
 
     long double r_g = 0;
-    coord_t current = start_conformation;
+    coord_check_t current = start_conformation;
     long double y = 0, x = 0;
     long double point1x = 0, point1y = 0;
     std::vector<long int> point1;
@@ -726,7 +726,7 @@ void Protein::radius_gyration()
     long int point1xs, point1ys;
     std::vector<long int> point1s;
     point1s.resize(lattice->d(), 0);
-    coord_t second_current;
+    coord_check_t second_current;
     for (int e = 0; e < number_of_monomers; e++)
     {
         second_current = start_conformation;

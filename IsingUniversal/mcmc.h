@@ -56,7 +56,7 @@ public:
     std::valarray<char> sequence_on_lattice;
     std::valarray<coord_check_t> next_monomers;
     std::valarray<coord_check_t> previous_monomers;
-    coord_t end_conformation = 0, start_conformation = 0;
+    coord_check_t end_conformation = 0, start_conformation = 0;
 
     std::queue<long int>  spins_in_cluster;
 
