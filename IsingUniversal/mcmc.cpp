@@ -82,7 +82,7 @@ Protein::Protein(long int n, std::string l) {
 
     bulk_now[0] = number_of_monomers - 2;
 
-
+	std::cout << l << " lattice is ready!" << endl;
 }
 
 void Protein::count_contacts()
@@ -226,10 +226,10 @@ void Protein::Reconnect(int j) {
     //             {2, 3, 1, 0}, //270
     //             {0, 1, 2, 3}
     //            };
-    coord_t c;
+    coord_check_t c;
 
-    coord_t step = lattice->map_of_contacts_int[lattice->ndim() * end_conformation + j];
-    coord_t new_end = next_monomers[step];
+    coord_check_t step = lattice->map_of_contacts_int[lattice->ndim() * end_conformation + j];
+    coord_check_t new_end = next_monomers[step];
 
     next_monomers[step] = end_conformation;
 
@@ -244,7 +244,7 @@ void Protein::Reconnect(int j) {
         return;
 
     }
-    long int new_c;
+    coord_check_t new_c;
     while (c != new_end)
     {
         // std::cout << "c  " << c << std::endl;
@@ -273,7 +273,7 @@ void Protein::Reconnect(int j) {
         directions[c] = inverse_steps[directions[new_c]];
         c = new_c;
     }
-    coord_t temp_prev_next = next_monomers[new_end];
+    coord_check_t temp_prev_next = next_monomers[new_end];
 
 
     previous_monomers[end_conformation] = step;
@@ -300,6 +300,7 @@ void Protein::Reconnect(int j) {
 
 void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equilibrium, long int mc_steps, bool bradius)
 {
+	
     std::uniform_int_distribution<int> distribution1(0, lattice->ndim() - 1);
     nSimulation = Simulation;
     J = J_in;
@@ -332,7 +333,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
     coord_t new_point; //номер новой точки в цепочке
     long int new_E, new_H;
     int hh;
-    coord_t temp, del, oldspin;
+    coord_check_t temp, del;
+	char oldspin;
 
 
     //std::uniform_int_distribution<long int> distribution_spin(0, number_of_monomers-1);

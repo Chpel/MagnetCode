@@ -50,12 +50,12 @@ public:
 
     std::valarray<long int> ordered_coords;
 
-    std::valarray<int> directions; //их n-1;
+    std::valarray<short> directions; //их n-1;
     //если в directions[10] стоит 0, значит, двигаемся вправо из координаты 10
 
     std::valarray<char> sequence_on_lattice;
-    std::valarray<coord_t> next_monomers;
-    std::valarray<coord_t> previous_monomers;
+    std::valarray<coord_check_t> next_monomers;
+    std::valarray<coord_check_t> previous_monomers;
     coord_t end_conformation = 0, start_conformation = 0;
 
     std::queue<long int>  spins_in_cluster;

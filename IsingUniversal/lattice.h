@@ -14,12 +14,13 @@
 unsigned long long int int_pow(int lattice_side, int d);
 
 typedef unsigned long int coord_t;
+typedef long long int coord_check_t;
 
 class Lattice {
 public:
 	int lattice_side; //длина стороны решётки
-	std::valarray<unsigned long> map_of_contacts_int;
-	std::vector<std::valarray<unsigned short>> coords;
+	std::valarray<coord_t> map_of_contacts_int;
+	std::vector<std::valarray<short>> coords;
     virtual int ndim() = 0; //число соседей узла
     virtual int d() = 0; //размерность пространства
 	virtual void create_lattice(long int max_seq_size = 100) = 0;
