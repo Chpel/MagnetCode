@@ -327,7 +327,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
     double q_rd, p1, p_metropolis; //Для вероятности принятия шага
     int rand_path; // = distribution1(generators1); //выбирается направление: 0 - переставляем начало в конец
     double typeOfUpdate; //0 - простой; 1 - реконнект
-    long int step;
+    coord_t step;
     int step_on_lattice;//выбор одного из соседей
     coord_t new_point; //номер новой точки в цепочке
     long int new_E, new_H;
@@ -535,7 +535,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
         }
         else {
 
-            unsigned long int coord = distribution_spin(generator_spin);
+            coord_t coord = distribution_spin(generator_spin);
 
             if (sequence_on_lattice[coord] != 0)
             { //вероятность такого события 1/n, делаем кластерный апдейт
@@ -544,7 +544,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                 std::valarray<bool> used_coords;
                 used_coords.resize(int_pow(lattice->lattice_side,lattice->d()), false);
 
-                std::queue<unsigned long int> Cluster;
+                std::queue<coord_t> Cluster;
 
                 Cluster.push(coord);
                 used_coords[coord] = true;
@@ -706,7 +706,7 @@ void Protein::radius_gyration()
 
 
     long double r_g = 0;
-    unsigned long int current = start_conformation;
+    coord_t current = start_conformation;
     long double y = 0, x = 0;
     long double point1x = 0, point1y = 0;
     std::vector<long int> point1;
@@ -724,7 +724,7 @@ void Protein::radius_gyration()
     long int point1xs, point1ys;
     std::vector<long int> point1s;
     point1s.resize(lattice->d(), 0);
-    unsigned long second_current;
+    coord_t second_current;
     for (int e = 0; e < number_of_monomers; e++)
     {
         second_current = start_conformation;

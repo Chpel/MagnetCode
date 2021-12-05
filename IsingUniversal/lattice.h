@@ -183,7 +183,7 @@ class Square_Lattice_4D : public Lattice {
         }
         unsigned short x, y, z, t;
         div_t n;
-        for (unsigned long i = 0; i < int_pow(lattice_side, d()); i++) {
+        for (coord_t i = 0; i < int_pow(lattice_side, d()); i++) {
             map_of_contacts_int[ndim() * i] = i + 1;
             map_of_contacts_int[ndim() * i + 1] = i - 1;
             map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
