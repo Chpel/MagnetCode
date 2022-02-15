@@ -1,0 +1,219 @@
+#include "lattice.h"
+
+size_t int_pow(int lattice_side, int d) {
+    size_t a = lattice_side;
+    for (int i = 1; i < d; i++) {
+        a *= lattice_side;
+    }
+    return a;
+}
+
+
+int Square_Lattice_2D::d() { return 2; }
+int Square_Lattice_2D::ndim() { return 4; }
+void Square_Lattice_2D::create_lattice(long int max_seq_size) {
+	lattice_side = max_seq_size;
+	map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
+	coords.resize(d());
+	for (int i = 0; i < d(); i++) {
+		coords[i].resize(int_pow(lattice_side, d()));
+	}
+	long int x, y;
+	div_t n;
+	for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
+		map_of_contacts_int[ndim() * i] = i + 1;
+		map_of_contacts_int[ndim() * i + 1] = i - 1;
+		map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
+		map_of_contacts_int[ndim() * i + 3] = i - lattice_side;
+		n = div(i, lattice_side);
+		x = n.rem;
+		y = n.quot;
+		if (x == 0) {
+			map_of_contacts_int[ndim() * i + 1] = i + lattice_side - 1;
+		}
+		if (x == (lattice_side - 1)) {
+			map_of_contacts_int[ndim() * i] = i - (lattice_side - 1);
+		}
+		if (y == 0) {
+			map_of_contacts_int[ndim() * i + 3] = lattice_side * (lattice_side - 1) + x;
+		}
+		if (y == (lattice_side - 1)) {
+			map_of_contacts_int[ndim() * i + 2] = x;
+		}
+		coords[0][i] = x;
+		coords[1][i] = y;
+	}
+}
+
+
+int Square_Lattice_3D::d() { return 3; }
+int Square_Lattice_3D::ndim() { return 6; }
+void Square_Lattice_3D::create_lattice(long int max_seq_size) {
+	lattice_side = max_seq_size;
+	map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
+	coords.resize(d());
+	for (int i = 0; i < d(); i++) {
+		coords[i].resize(int_pow(lattice_side, d()));
+	}
+	long int x, y, z;
+	div_t n;
+	for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
+		map_of_contacts_int[ndim() * i] = i + 1;
+		map_of_contacts_int[ndim() * i + 1] = i - 1;
+		map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
+		map_of_contacts_int[ndim() * i + 3] = i - lattice_side;
+		map_of_contacts_int[ndim() * i + 4] = i + lattice_side * lattice_side;
+		map_of_contacts_int[ndim() * i + 5] = i - lattice_side * lattice_side;
+		n = div(i, lattice_side * lattice_side);
+		z = n.quot;
+		x = n.rem % lattice_side;
+		y = n.rem / lattice_side;
+		if (x == 0) {
+			map_of_contacts_int[ndim() * i + 1] = i + lattice_side - 1;
+		}
+		if (x == (lattice_side - 1)) {
+			map_of_contacts_int[ndim() * i] = i - (lattice_side - 1);
+		}
+		if (y == 0) {
+			map_of_contacts_int[ndim() * i + 3] = lattice_side * (lattice_side - 1) + i;
+		}
+		if (y == (lattice_side - 1)) {
+			map_of_contacts_int[ndim() * i + 2] = i - lattice_side * (lattice_side - 1);
+		}
+		if (z == 0) {
+			map_of_contacts_int[ndim() * i + 5] = i + lattice_side * lattice_side * (lattice_side - 1);
+		}
+		if (z == lattice_side - 1) {
+			map_of_contacts_int[ndim() * i + 4] = i - lattice_side * lattice_side * (lattice_side - 1);
+		}
+		coords[0][i] = x;
+		coords[1][i] = y;
+		coords[2][i] = z;
+	}
+}
+
+int Triangle_Lattice_2D::d()  { return 2; }
+int Triangle_Lattice_2D::ndim()  { return 6; }
+void Triangle_Lattice_2D::create_lattice(long int max_seq_size) {
+	lattice_side = max_seq_size;
+	map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
+	coords.resize(d());
+	for (int i = 0; i < d(); i++) {
+		coords[i].resize(int_pow(lattice_side, d()));
+	}
+	lattice_side = max_seq_size;
+	//создается одномерный массив соседей на квадратной решетке
+	long int x, y;
+	div_t n;
+	for (unsigned long int i = 0; i < int_pow(lattice_side, d()); i++) {
+		map_of_contacts_int[ndim() * i] = i + 1;
+		map_of_contacts_int[ndim() * i + 1] = i - 1;
+		map_of_contacts_int[ndim() * i + 2] = i + lattice_side;
+		map_of_contacts_int[ndim() * i + 3] = i - lattice_side;
+		map_of_contacts_int[ndim() * i + 4] = i + lattice_side + 1;
+		map_of_contacts_int[ndim() * i + 5] = i - lattice_side - 1;
+		n = div(i, lattice_side);
+		x = n.rem;
+		y = n.quot;
+		for (int j = 0; j < ndim(); j++) {
+			if (x == 0) {
+				map_of_contacts_int[ndim() * i + 1] = i + lattice_side - 1;
+			}
+			if (x == (lattice_side - 1)) {
+				map_of_contacts_int[ndim() * i] = i - (lattice_side - 1);
+			}
+			if (y == 0) {
+				map_of_contacts_int[ndim() * i + 3] = lattice_side * (lattice_side - 1) + x;
+			}
+			if (y == (lattice_side - 1)) {
+				map_of_contacts_int[ndim() * i + 2] = x;
+			}
+			if ((y == (lattice_side - 1)) && (x == (lattice_side - 1))) {
+				map_of_contacts_int[ndim() * i + 4] = 0;
+			}
+			if ((y == (lattice_side - 1)) && (x < (lattice_side - 1))) {
+				map_of_contacts_int[ndim() * i + 4] = x + 1;
+			}
+			if ((y < (lattice_side - 1)) && (x == (lattice_side - 1))) {
+				map_of_contacts_int[ndim() * i + 4] = i + 1;
+			}
+			if ((y == 0) && (x == 0)) {
+				map_of_contacts_int[ndim() * i + 5] = lattice_side * lattice_side - 1;
+			}
+			if ((y == 0) && (x > 0)) {
+				map_of_contacts_int[ndim() * i + 5] = lattice_side * (lattice_side - 1) + x - 1;
+			}
+			if ((y > 0) && (x == 0)) {
+				map_of_contacts_int[ndim() * i + 5] = i - 1;
+			}
+			coords[0][i] = x;
+			coords[1][i] = y;
+		}
+	}
+}
+
+int Square_Lattice_4D::d()  { return 4; }
+int Square_Lattice_4D::ndim()  { return 8; }
+void Square_Lattice_4D::create_lattice(long int max_seq_size) {
+	lattice_side = max_seq_size;
+	map_of_contacts_int.resize(int_pow(lattice_side, d()) * ndim());
+	coords.resize(d());
+	for (int i = 0; i < d(); i++) {
+		coords[i].resize(int_pow(lattice_side, d()));
+	}
+	unsigned short x, y, z, t;
+	lldiv_t n;
+	unsigned long long int step_on_map[] =  {1, lattice_side, lattice_side*lattice_side, lattice_side*lattice_side*lattice_side};
+	unsigned long long int step_over_map[] =  {lattice_side - 1, lattice_side * (lattice_side - 1), lattice_side * lattice_side * (lattice_side - 1), lattice_side * lattice_side * lattice_side * (lattice_side - 1)};
+	size_t len_of_cube = int_pow(lattice_side, d());
+	bool printer = true;
+	std::cout << len_of_cube << std::endl;
+	for (size_t i = 0; i < len_of_cube; i++) {
+		n = lldiv(i, (long long)(lattice_side * lattice_side * lattice_side));
+		t = n.quot;
+		n = lldiv(n.rem, (long long)(lattice_side * lattice_side));
+		z = n.quot;
+		n = lldiv(n.rem, (long long)(lattice_side));
+		x = n.rem;
+		y = n.quot;
+		if (x == 0) map_of_contacts_int[ndim() * i + 1] = i + step_over_map[0];
+		else map_of_contacts_int[ndim() * i + 1] = i - step_on_map[0];
+		
+		if (x == (lattice_side - 1)) map_of_contacts_int[ndim() * i] = i - step_over_map[0];
+		else map_of_contacts_int[ndim() * i] = i + step_on_map[0];
+		
+		if (y == 0) map_of_contacts_int[ndim() * i + 3] = step_over_map[1] + i;
+		else map_of_contacts_int[ndim() * i + 3] = i - step_on_map[1];
+		
+		if (y == (lattice_side - 1)) map_of_contacts_int[ndim() * i + 2] = i - step_over_map[1];
+		else map_of_contacts_int[ndim() * i + 2] = i + step_on_map[1];
+		
+		if (z == 0) map_of_contacts_int[ndim() * i + 5] = i + step_over_map[2];
+		else map_of_contacts_int[ndim() * i + 5] = i - step_on_map[2];
+
+		if (z == lattice_side - 1) map_of_contacts_int[ndim() * i + 4] = i - step_over_map[2];
+		else map_of_contacts_int[ndim() * i + 4] = i + step_on_map[2];
+		
+		if (t == 0) map_of_contacts_int[ndim() * i + 7] = i + step_over_map[3];
+		else map_of_contacts_int[ndim() * i + 7] = i - step_on_map[3];
+		
+		if (t == lattice_side - 1) map_of_contacts_int[ndim() * i + 6] = i - step_over_map[3];
+		else map_of_contacts_int[ndim() * i + 6] = i + step_on_map[3];
+		
+		/*if ((x == 0) && (y == 0) && (z == 100)) {
+			std::cout << i << ": ";
+			std::cout << map_of_contacts_int[ndim() * i] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 1] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 2] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 3] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 4] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 5] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 6] << " ";
+			std::cout << map_of_contacts_int[ndim() * i + 7] << std::endl;
+		}*/
+		coords[0][i] = x;
+		coords[1][i] = y;
+		coords[2][i] = z;
+		coords[3][i] = t;
+	}
+}
