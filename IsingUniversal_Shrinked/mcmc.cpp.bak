@@ -104,7 +104,7 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
 
 	std::cout << l << " lattice is ready!" << std::endl;
 	
-	//save_walks();
+	save_walks();
 	//exit(1);
 	
 }
