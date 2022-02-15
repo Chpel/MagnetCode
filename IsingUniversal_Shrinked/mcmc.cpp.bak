@@ -65,15 +65,15 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
 		sequence_on_lattice[current_pos] = 1;
 		previous_monomers[current_pos] = current_pos - step_on_map[step];
 		
-		sum_coord[0] += lattice->coord[0][current_pos];
-		sum_coord[1] += lattice->coord[1][current_pos];
+		sum_coord[0] += lattice->coords[0][current_pos];
+		sum_coord[1] += lattice->coords[1][current_pos];
 		
-		if (step == 0) && (lattice->coord[0][current_pos] == lattice->lattice_side - 2) {step = 2;}
-		else if (step == 2) && (lattice->coord[1][current_pos] % 2 == 0) {
-			if (lattice->coord[0][current_pos] == 0) {step = 0;}
+		if (step == 0) && (lattice->coords[0][current_pos] == lattice->lattice_side - 2) {step = 2;}
+		else if (step == 2) && (lattice->coords[1][current_pos] % 2 == 0) {
+			if (lattice->coords[0][current_pos] == 0) {step = 0;}
 			else {step = 1;}
 		}
-		else if (step == 1) && (lattice->coord[0][current_pos] == 0) {step = 2;}
+		else if (step == 1) && (lattice->coords[0][current_pos] == 0) {step = 2;}
 		//ordered_coords[i] = ;
     }		
 	next_monomers[current_pos] = current_pos + step_on_map[step];
@@ -82,8 +82,8 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
 	sequence_on_lattice[current_pos] = 1;
 	previous_monomers[current_pos] = current_pos - step_on_map[step];
 	
-	sum_coord[0] += lattice->coord[0][current_pos];
-	sum_coord[1] += lattice->coord[1][current_pos];
+	sum_coord[0] += lattice->coords[0][current_pos];
+	sum_coord[1] += lattice->coords[1][current_pos];
 	
     //ordered_coords[0] = 0;
     //ordered_coords[n - 1] = n - 1;
