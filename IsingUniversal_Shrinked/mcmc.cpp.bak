@@ -34,7 +34,7 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
     }
     this->l = l;
 	int side = (int)(k_u * pow(n, metric_exp)) + 5;
-	std::cout << "Creating " << l << " lattice..." << std::endl;
+	std::cout << "Creating " << l << " lattice with side = "<< side << std::endl;
     lattice->create_lattice(side); //создание решетки, на 5 больше, чем длина цепочки
     std::cout << l << " lattice ready! Len = " << lattice->map_of_contacts_int.size() << ". Metric exponent = " << metric_exp <<std::endl;
     //массив числа соседей

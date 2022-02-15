@@ -30,7 +30,7 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
     }
     else if (l == "hypercubic") {
         lattice = new Square_Lattice_4D;
-		double metric_exp = 0.5;
+		metric_exp = 0.5;
     }
     this->l = l;
 	int side = (int)(k_u * pow(n, metric_exp)) + 5;
