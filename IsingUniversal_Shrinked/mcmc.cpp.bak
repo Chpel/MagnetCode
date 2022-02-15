@@ -647,7 +647,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
 }
 
-int isTooBig() {
+int Protein::isTooBig() {
 	std::vector <long long int> coords;
 	std::vector <long long int> min_coords;
 	std::vector <long long int> max_coords;
