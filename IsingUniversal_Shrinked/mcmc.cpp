@@ -104,7 +104,7 @@ Protein::Protein(long int n, std::string l, double k_u = 1) {
 
 	std::cout << l << " lattice is ready!" << std::endl;
 	
-	save_walks();
+	//save_walks();
 	//exit(1);
 	
 }
@@ -631,8 +631,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
         }
 
-		if (i > steps_to_equilibrium) {
-			k_too_big += isTooBig();
+		if (i > steps_to_equilibrium && i % number_of_monomers == 0) {
+			k_too_big += number_of_monomers * isTooBig();
 		}
 
         

@@ -969,7 +969,7 @@ void Protein::write_file(long int i) {
     std::string filename;
     std::ofstream out_result;
 
-    filename = "Geometry_Ising_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+    filename = "Geometry_Ising_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
@@ -1003,7 +1003,7 @@ void Protein::write_file(long int i) {
 
 
 
-    filename = "BC_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + ".txt";
+    filename = "BC_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + "in" + std::to_string(lattice->lattice_side) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
