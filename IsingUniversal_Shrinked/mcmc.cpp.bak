@@ -837,7 +837,8 @@ void Protein::save_walks() {
 
     out_result.open(filename);
 	
-	size_t current = start_conformation;
+	current = start_conformation;
+	int direction;
 	std::vector <std::vector<int>> steps = { {1,0,0,0}, {-1,0,0,0}, {0,1,0,0}, {0,-1,0,0},
 											 {0,0,1,0}, {0,0,-1,0}, {0,0,0,0}, {0,0,0,-1}};
 	std::vector<int> current_pos;
