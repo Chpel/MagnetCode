@@ -831,6 +831,33 @@ void Protein::save_walks() {
 	}
 	
 	out_result.close();
+	
+	filename = "Ising_Directions_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
+    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
+
+    out_result.open(filename);
+	
+	size_t current = start_conformation;
+	std::vector <std::vector<int>> steps = { {1,0,0,0}, {-1,0,0,0}, {0,1,0,0}, {0,-1,0,0},
+											 {0,0,1,0}, {0,0,-1,0}, {0,0,0,0}, {0,0,0,-1}};
+	std::vector<int> current_pos;
+	current_pos.resize(lattice->d(), 0);
+	for (int j = 0; j < lattice->d(); j++) {
+		out_result << 0 << " ";
+	}
+	out_result << std::endl;
+    for (long long int i = 1; i < number_of_monomers; i++)
+    {
+        direction = directions[current];
+		for (int j = 0; j < lattice->d(); j++) {
+			current_pos[j] = current_pos[j] + steps[direction][j];
+			out_result << current_pos[j] << " ";
+        }
+		out_result << std::endl;
+        current = next_monomers[current];
+    }
+	
+	out_result.close();
 }
 
 //»Ћ№я: пока € не решил проблему дл€ собственных значений при разной размерности. пока лежит так
