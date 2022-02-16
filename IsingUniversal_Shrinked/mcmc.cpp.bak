@@ -816,7 +816,7 @@ void Protein::save_walks() {
 	std::string filename;
     std::ofstream out_result;
 
-    filename = "Ising_Walk_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+    filename = "Ising_Walk_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
