@@ -84,7 +84,7 @@ public:
     long int E = 0; // -1* число топологических контактов текущей конформации
     long int current_H_counts = 0;
 	
-	long long int k_too_big;
+	int k_too_big;
 
     std::map <long int, long long int> count_E;
     std::map <long int, long long int> count_M;
