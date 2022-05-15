@@ -1,0 +1,61 @@
+import numpy as np
+from numba import jit
+
+x0 = np.array([0,0])
+steps = np.array([[1,0],[-1,0],[0,1],[0,-1]])
+
+@jit
+def experiment(N: int):
+    walk_directions = np.random.randint(0,4, size=N)
+    walk_dots = np.zeros((N, 2), dtype=np.int16)
+    walk_dots[0] = x0
+    for i in range(1,N):
+        walk_dots[i] = walk_dots[i-1] + steps[walk_directions[i]]
+        
+    walk_dots_new = np.unique(walk_dots, axis=0)
+    N_new = len(walk_dots_new)
+
+    walk_neighbors = 0
+    neigh_fract_0 = np.zeros((1,5), dtype=np.float_)
+    for i in range(N_new):
+        walk_neighbors = 0
+        for step in steps:
+            potential_n = walk_dots_new[i] + step
+            for j in range(N_new):
+                if (walk_dots_new[j] == potential_n).all():
+                    walk_neighbors += 1
+                    break   
+        neigh_fract_0[0][walk_neighbors-1] += 1
+    neigh_fract_0 /= N_new
+    neigh_fract_0[0][-1] = N_new / N
+    return neigh_fract_0
+
+def write_results(N, obs_mean, obs_std, steps):
+    res_array = np.array([N])
+    res_array = np.append(res_array, obs_mean)
+    res_array = np.append(res_array, obs_std)
+    res_array = np.append(res_array, steps)
+    np.savetxt('Drunk_Sailor_N_' + str(N) + '.txt', 
+               [res_array], 
+               delimiter=' ', 
+               fmt=['%d', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%d'], 
+               newline=' ', 
+               header='N  n1_mean  n2_mean  n3_mean  n4_mean  uni_mean  n1_std  n2_std  n3_std  n4_std  uni_std  steps\n',
+               comments='')
+
+
+def complex_experiment(K, N):
+    observables = experiment(N)
+    iters = 0
+    while True:
+        for i in range(K):
+            observables = np.append(observables, experiment(N), axis=0)
+        iters += 1
+        write_results(N, observables.mean(axis=0), observables.std(axis=0), iters * K)
+        if iters * K > 100000000:
+            break
+
+from sys import argv
+
+script, N, K = argv
+complex_experiment(int(K), int(N))
