@@ -1,5 +1,6 @@
 import numpy as np
 from numba import jit
+import matplotlib.pyplot as plt
 
 x0 = np.array([0,0])
 steps = np.array([[1,0],[-1,0],[0,1],[0,-1]])
