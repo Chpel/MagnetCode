@@ -62,7 +62,7 @@ def complex_experiment(N, step_i, stop_i):
     observables = experiment(N)
     iters = 0
     while True:
-        for i in trange(step_i):
+        for i in range(step_i):
             observables = np.append(observables, experiment(N), axis=0)
         iters += 1
         save_distr(N, observables, iters * step_i)
