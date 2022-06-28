@@ -74,7 +74,8 @@ def complex_experiment(N, step_i, stop_i):
         for i in range(step_i):
             observables = np.append(observables, experiment(N), axis=0)
         iters += 1
-        
+        obs_mean = observables.mean(axis=0)
+        obs_std = observables.std(axis=0)
         if iters == 1:
             means = np.array([obs_mean])
             stds = np.array([obs_std])
