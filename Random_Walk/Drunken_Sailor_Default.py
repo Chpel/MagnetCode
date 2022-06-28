@@ -1,12 +1,10 @@
 import numpy as np
 from numba import jit
 
+x0 = np.array([0,0])
+steps = np.array([[1,0],[-1,0],[0,1],[0,-1]])
 
-
-@jit
 def experiment(N: int):
-    x0 = np.array([0,0])
-    steps = np.array([[1,0],[-1,0],[0,1],[0,-1]])
     walk_directions = np.random.randint(0,4, size=N)
     walk_dots = np.zeros((N, 2), dtype=np.int16)
     walk_dots[0] = x0
@@ -25,6 +23,7 @@ def experiment(N: int):
             for j in range(N_new):
                 if (walk_dots_new[j] == potential_n).all():
                     walk_neighbors += 1
+                    break   
         neigh_fract_0[0][walk_neighbors-1] += 1
     neigh_fract_0 /= N_new
     neigh_fract_0[0][-1] = N_new / N
@@ -74,7 +73,8 @@ def complex_experiment(N, step_i, stop_i):
         for i in range(step_i):
             observables = np.append(observables, experiment(N), axis=0)
         iters += 1
-        
+        obs_mean = observables.mean(axis=0)
+        obs_std = observables.std(axis=0)
         if iters == 1:
             means = np.array([obs_mean])
             stds = np.array([obs_std])
@@ -84,7 +84,7 @@ def complex_experiment(N, step_i, stop_i):
         
         save_distr(N, observables, iters * step_i)
         write_results(N, obs_mean, obs_std, iters * step_i)
-        save_history(N, means, stds, iters, step_i)
+        save_history(N, means, stds, step_i, iters)
         if iters >= stop_i:
             break
         
