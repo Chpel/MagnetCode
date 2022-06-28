@@ -56,19 +56,35 @@ def save_distr(N, obs, steps):
     counts_arr = np.array(counts_arr)
     bins_arr = np.array(bins_arr)
     np.savez(name, hist=counts_arr, bins=bins_arr, steps=steps)
+    
+    
+def save_history(N, m, s, step, i):
+    name = 'DS_' + str(N) + '_history.npz'
+    np.savez(name, means=m, stds=s, step=step, iters=i)
         
 
 def complex_experiment(N, step_i, stop_i):
     observables = experiment(N)
+    means = np.array([])
+    stds = np.array([])
+    
     iters = 0
+    
     while True:
         for i in range(step_i):
             observables = np.append(observables, experiment(N), axis=0)
         iters += 1
+        obs_mean = observables.mean(axis=0)
+        obs_std = observables.std(axis=0)
+        means = np.append(means, obs_mean)
+        stds = np.append(stds, obs_std)
+        
         save_distr(N, observables, iters * step_i)
-        write_results(N, observables.mean(axis=0), observables.std(axis=0), iters * step_i)
+        write_results(N, obs_mean, obs_std, iters * step_i)
+        save_history(N, means, stds, iters, step_i)
         if iters >= stop_i:
             break
+        
 
 from sys import argv
 
