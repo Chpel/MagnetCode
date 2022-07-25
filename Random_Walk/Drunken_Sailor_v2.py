@@ -1,5 +1,6 @@
 import numpy as np
 from numba import jit, njit, prange
+from time import time
 
 
 
@@ -67,6 +68,7 @@ def main_func(N, di, stop_i):
     stds = np.array([])
 
     iters = 0
+    start = time()
     while iters < stop_i:
         n1_n, n2_n, n3_n, n4_n, nU_n = complex_experiment(N, di)   
         n1 = np.append(n1, n1_n)
@@ -78,6 +80,7 @@ def main_func(N, di, stop_i):
         if iters == 0:
             means = np.array([obs_mean])
             stds = np.array([obs_std])
+            print(f"Время выполнения первого цикла из {di} цепочек длины {N}: {time() - start}"
         else:
             means = np.append(means, [obs_mean], axis=0)
             stds = np.append(stds, [obs_std], axis=0)
