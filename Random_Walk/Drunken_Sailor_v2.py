@@ -80,7 +80,7 @@ def main_func(N, di, stop_i):
         if iters == 0:
             means = np.array([obs_mean])
             stds = np.array([obs_std])
-            print(f"Время выполнения первого цикла из {di} цепочек длины {N}: {time() - start}"
+            print(f"Время выполнения первого цикла из {di} цепочек длины {N}: {time() - start}")
         else:
             means = np.append(means, [obs_mean], axis=0)
             stds = np.append(stds, [obs_std], axis=0)
