@@ -38,7 +38,7 @@ def calc_fractions(dots, N, last_dot):
 def experiment(N: int):
     walk = create_walk(N)    
     unique_dots = np.unique(walk, axis=0)
-    return calc_fractions(unique_dots,N)
+    return calc_fractions(unique_dots,N,walk[-1,:])
     
 @jit(parallel=True)
 def complex_experiment(N, di):
