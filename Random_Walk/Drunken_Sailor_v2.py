@@ -16,7 +16,7 @@ def create_walk(N):
     return walk_dots
     
 @njit
-def calc_fractions(dots, N):
+def calc_fractions(dots, N, last_dot):
     steps = np.array([[1,0],[-1,0],[0,1],[0,-1]])
     N_new = dots.shape[0]
     walk_neighbors = 0
@@ -29,8 +29,10 @@ def calc_fractions(dots, N):
                 if (dots[j] == potential_n).all():
                     walk_neighbors += 1
         neigh_fract_0[walk_neighbors-1] += 1
+        if (dots[i] == last_dot).all():
+            atm = 4 - walk_neighbors
     neigh_fract_0 /= N_new
-    return np.append(neigh_fract_0, N_new / N)
+    return np.append(neigh_fract_0, N_new / N), atm
 
 @jit
 def experiment(N: int):
@@ -40,10 +42,11 @@ def experiment(N: int):
     
 @jit(parallel=True)
 def complex_experiment(N, di):
-    n1_new, n2_new, n3_new, n4_new, nU_new = np.zeros((5,di), dtype=np.float_)
+    n_batch = np.zeros((5,di), dtype=np.float_)
+    atm = np.zeros(di, dtype=np.short)
     for i in prange(di):
-        n1_new[i], n2_new[i], n3_new[i], n4_new[i], nU_new[i] = experiment(N)
-    return n1_new, n2_new, n3_new, n4_new, nU_new
+        n_batch[:,i], atm[i] = experiment(N)
+    return n_batch[0, :], n_batch[1,:], n_batch[2,:], n_batch[3,:], n_batch[4,:], atm
     
 @njit
 def stats(*args):
@@ -57,6 +60,13 @@ def stats(*args):
         i+=1
     return means, stds
     
+@njit
+def atm_bins(arr):
+    atms = np.array([0,0,0,0], np.int_)
+    for i in range(4):
+        atms[i] = (arr == i).sum()
+    return atms
+    
     
 def main_func(N, di, stop_i):
     n1 = np.array([])
@@ -64,28 +74,30 @@ def main_func(N, di, stop_i):
     n3 = np.array([])
     n4 = np.array([])
     nU = np.array([])
+    atm = np.array([0,0,0,0], dtype=np.int_)
     means = np.array([])
     stds = np.array([])
 
     iters = 0
-    start = time()
     while iters < stop_i:
-        n1_n, n2_n, n3_n, n4_n, nU_n = complex_experiment(N, di)   
+        iters += 1
+        n1_n, n2_n, n3_n, n4_n, nU_n, atm_n = complex_experiment(N, di)   
         n1 = np.append(n1, n1_n)
         n2 = np.append(n2, n2_n)
         n3 = np.append(n3, n3_n)
         n4 = np.append(n4, n4_n)
         nU = np.append(nU, nU_n)
+        atm = atm + atm_bins(atm_n)
         obs_mean, obs_std = stats(n1,n2,n3,n4,nU)
-        if iters == 0:
+        p_a = atm / (iters * di)
+        if iters == 1:
             means = np.array([obs_mean])
             stds = np.array([obs_std])
-            print(f"Время выполнения первого цикла из {di} цепочек длины {N}: {time() - start}")
         else:
             means = np.append(means, [obs_mean], axis=0)
             stds = np.append(stds, [obs_std], axis=0)
 
-        write_results(N, obs_mean, obs_std, iters * di)
+        write_results(N, obs_mean, obs_std, p_a, iters * di)
         
         if iters % 10 == 0:
             save_distr(N, iters * di, n1, n2, n3, n4, nU)
@@ -93,17 +105,26 @@ def main_func(N, di, stop_i):
         iters += 1
         
         
-def write_results(N, obs_mean, obs_std, steps):
+def write_results(N, obs_mean, obs_std, p, steps):
     res_array = np.array([N])
     res_array = np.append(res_array, obs_mean)
     res_array = np.append(res_array, obs_std)
+    res_array = np.append(res_array, p)
     res_array = np.append(res_array, steps)
     np.savetxt('Drunk_Sailor_N_' + str(N) + '.txt', 
                [res_array], 
                delimiter=' ', 
-               fmt=['%d', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%d'], 
+               fmt=['%d', 
+                    '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f',
+                    '%1.6f', '%1.6f', '%1.6f', '%1.6f', '%1.6f',
+                    '%1.6f', '%1.6f', '%1.6f', '%1.6f',
+                    '%d'], 
                newline=' ', 
-               header='N  n1_mean  n2_mean  n3_mean  n4_mean  uni_mean  n1_std  n2_std  n3_std  n4_std  uni_std  steps\n',
+               header='N ' + 
+               ' n1_mean  n2_mean  n3_mean  n4_mean  uni_mean ' + 
+               ' n1_std  n2_std  n3_std  n4_std  uni_std ' + 
+               ' p0  p1  p2  p3 ' +
+               ' steps\n',
                comments='')
 
 def save_distr(N, steps, *arrs):
