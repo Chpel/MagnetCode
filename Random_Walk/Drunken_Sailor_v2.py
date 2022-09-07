@@ -102,7 +102,6 @@ def main_func(N, di, stop_i):
         if iters % 10 == 0:
             save_distr(N, iters * di, n1, n2, n3, n4, nU)
             save_history(N, means, stds, iters, di)
-        iters += 1
         
         
 def write_results(N, obs_mean, obs_std, p, steps):
