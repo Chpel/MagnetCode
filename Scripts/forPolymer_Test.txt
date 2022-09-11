@@ -1,0 +1,4 @@
+IsUn_Shr.out 300 0 hypercubic 200
+IsUn_Shr.out 300 0 hypercubic 300
+IsUn_Shr.out 300 0 hypercubic 400
+IsUn_Shr.out 300 0 hypercubic 500

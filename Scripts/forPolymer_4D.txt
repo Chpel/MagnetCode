@@ -1,0 +1,17 @@
+IsUn_Shr.out 100 0 hypercubic 200
+IsUn_Shr.out 100 0 hypercubic 300
+IsUn_Shr.out 100 0 hypercubic 400
+IsUn_Shr.out 300 0 hypercubic 200
+IsUn_Shr.out 300 0 hypercubic 300
+IsUn_Shr.out 300 0 hypercubic 400
+IsUn_Shr.out 600 0 hypercubic 200
+IsUn_Shr.out 600 0 hypercubic 300
+IsUn_Shr.out 600 0 hypercubic 400
+IsUn_Shr.out 900 0 hypercubic 200
+IsUn_Shr.out 900 0 hypercubic 300
+IsUn_Shr.out 900 0 hypercubic 400
+IsUn_Shr.out 100 0 hypercubic 500
+IsUn_Shr.out 300 0 hypercubic 500
+IsUn_Shr.out 600 0 hypercubic 500
+IsUn_Shr.out 900 0 hypercubic 500
+IsUn_Shr.out 1200 0 hypercubic 600
