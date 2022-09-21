@@ -1,0 +1,6 @@
+Drunken_Sailor_v2.py 150 10000 10000
+Drunken_Sailor_v2.py 350 10000 10000
+Drunken_Sailor_v2.py 750 10000 10000
+Drunken_Sailor_v2.py 3000 10000 10000
+Drunken_Sailor_v2.py 6500 10000 10000
+Drunken_Sailor_v2.py 8000 10000 10000
