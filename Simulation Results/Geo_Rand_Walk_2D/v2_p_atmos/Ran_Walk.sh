@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=Dr_S_full
 #SBATCH --output=Drunken_Sailor_%A.txt
-#SBATCH --time=2-00:00:00                  # Ограничение времени выполнения задачи (дни-часы:мин:сек)
+#SBATCH --time=7-00:00:00                  # Ограничение времени выполнения задачи (дни-часы:мин:сек)
 #SBATCH --cpus-per-task=5
 module purge                             # Очистка переменных окружения
 
