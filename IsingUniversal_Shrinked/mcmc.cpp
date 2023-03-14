@@ -636,7 +636,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 		}
 
         
-        if (i > steps_to_equilibrium && i % 100000000 == 0)
+        if (i > steps_to_equilibrium && i % 10000000 == 0)
         {
 
             write_file(i);
@@ -1003,7 +1003,7 @@ void Protein::write_file(long int i) {
 
 
 
-    filename = "BC_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + "in" + std::to_string(lattice->lattice_side) + ".txt";
+    filename = "BC_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
@@ -1027,9 +1027,37 @@ void Protein::write_file(long int i) {
     out_result << std::endl;
 
     out_result.close();
-
-
     out_result.close();
+
+	filename = "Counts_E_Ising_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
+    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
+
+    out_result.open(filename);
+	out_result << "N J h steps " << std::endl;
+	out_result << number_of_monomers << " " << J << " " << h << " ";
+	out_result << i << std::endl;
+	for (auto counts : count_E)
+	{
+		out_result << counts.first << " " << counts.second << std::endl;
+	}
+	out_result.close();
+
+
+	filename = "Counts_M_Ising_" + l + " " + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "in" + std::to_string(lattice->lattice_side) + ".txt";
+	//filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
+
+	out_result.open(filename);
+
+	out_result << "N J h steps " << std::endl;
+	out_result << number_of_monomers << " " << J << " " << h << " ";
+	out_result << i << std::endl;
+	for (auto counts : count_M)
+	{
+		out_result << counts.first << " " << counts.second << std::endl;
+	}
+	out_result.close();
+	
+	
 
 }
 
