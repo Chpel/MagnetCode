@@ -1,0 +1,10 @@
+IsUn_Shr.out 1200 0 triangle 100
+IsUn_Shr.out 1200 100 triangle 100
+IsUn_Shr.out 1200 200 triangle 100
+IsUn_Shr.out 1200 300 triangle 100
+IsUn_Shr.out 1200 400 triangle 100
+IsUn_Shr.out 1200 500 triangle 100
+IsUn_Shr.out 1200 600 triangle 100
+IsUn_Shr.out 1200 700 triangle 100
+IsUn_Shr.out 1200 800 triangle 100
+IsUn_Shr.out 1200 900 triangle 100

@@ -1,0 +1,6 @@
+IsUn_Shr.out 100 470 triangle 100
+0.47 
+Creating triangle lattice with side = 105
+triangle lattice ready! Len = 66150. Metric exponent = 1
+Additional arrays resizing. Len = 11025
+triangle lattice is ready!
