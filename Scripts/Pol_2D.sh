@@ -7,6 +7,6 @@ module purge                             # Очистка переменных окружения
 # Загрузка необходимых переменных окружения
 module load gnu8 openmpi3
 
-LINE=$(sed -n "$SLURM_ARRAY_TASK_ID"p forPolymer_2D.txt)
+LINE=$(sed -n "$SLURM_ARRAY_TASK_ID"p forPolymer_Tri.txt)
 echo $LINE
 srun /home/iipchelintsev/Outs/$LINE
