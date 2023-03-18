@@ -4,3 +4,40 @@ Creating triangle lattice with side = 105
 triangle lattice ready! Len = 66150. Metric exponent = 1
 Additional arrays resizing. Len = 11025
 triangle lattice is ready!
+slurmstepd: error: *** STEP 1201253.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201210 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201253 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+srun: error: cn-028: task 0: Terminated
+srun: Force Terminated StepId=1201253.0
+slurmstepd: error: *** STEP 1201210.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201252.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201252 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201251.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201251 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201250.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201250 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201249.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201249 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+srun: error: cn-028: task 0: Terminated
+srun: Force Terminated StepId=1201249.0
+slurmstepd: error: *** JOB 1201248 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201248.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201247.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201247 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201246.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201246 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201245.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201245 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201244.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201244 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201243 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201243.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201242 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201242.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201241.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201241 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201240.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** JOB 1201240 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** JOB 1201239 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
+slurmstepd: error: *** STEP 1201239.0 ON cn-028 CANCELLED AT 2023-03-18T16:03:01 ***
