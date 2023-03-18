@@ -1,9 +1,0 @@
-IsUn_Shr.out 1200 900 triangle 100
-0.9 
-Creating triangle lattice with side = 1205
-triangle lattice ready! Len = 8712150. Metric exponent = 1
-Additional arrays resizing. Len = 1452025
-triangle lattice is ready!
-srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
-slurmstepd: error: *** JOB 1201204 ON cn-028 CANCELLED AT 2023-03-18T16:04:15 ***
-slurmstepd: error: *** STEP 1201204.0 ON cn-028 CANCELLED AT 2023-03-18T16:04:15 ***
