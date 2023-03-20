@@ -1,0 +1,21 @@
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+IsUn_Shr.out 6000 560 triangle 100
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+triangle lattice is ready!
+triangle lattice is ready!
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+0.56 
+Creating triangle lattice with side = 6005
+triangle lattice is ready!
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+triangle lattice is ready!
+triangle lattice is ready!
+triangle lattice ready! Len = 216360150. Metric exponent = 1
+Additional arrays resizing. Len = 36060025
+triangle lattice is ready!
