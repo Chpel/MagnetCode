@@ -1,2 +1,2 @@
 N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq mean_e err_mean_e mean_e_sq err_mean_e_sq mean_e_fourth err_mean_e_fourth mean_m err_mean_m mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth 
-2400 0.53 0 29998 406 0 -nan -1.79526 0.00108559 3.22883 0.00390841 10.5015 0.0254805 0.161101 0.000599791 0.0403664 0.000313343 0.00469531 7.93836e-05 96320000000 
+2400 0.53 0 30039 287 0 -nan -1.79542 0.00101044 3.22933 0.00362356 10.5042 0.0234277 0.161188 0.0005385 0.040383 0.000262994 0.00468548 5.72784e-05 311890000000 
