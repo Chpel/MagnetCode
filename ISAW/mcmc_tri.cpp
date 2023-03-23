@@ -680,16 +680,16 @@ void Protein::write_file(long int i) {
 
     out_result.open(filename);
     //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
-    out_result << "N J h ";// mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
+    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
     //out_result << "lambda1 err_lambda1 lambda2 err_lambda2 acperical err_aspherical";
-    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6 " << " steps" << std::endl;
+    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6 " << "steps" << std::endl;
 
     out_result << number_of_monomers << " " << J << " " << h << " ";
-    //out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
+    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
 
-    //out_result << eigs1.mean() << " " << eigs1.errorbar() << " ";
-    //out_result << eigs2.mean() << " " << eigs2.errorbar() << " ";
-    //out_result << aratio.mean() << " " << aratio.errorbar() << " ";
+    out_result << eigs1.mean() << " " << eigs1.errorbar() << " ";
+    out_result << eigs2.mean() << " " << eigs2.errorbar() << " ";
+    out_result << aratio.mean() << " " << aratio.errorbar() << " ";
 
     out_result << bulk2.mean() << " " << bulk2.errorbar() << " ";
     out_result << bulk3.mean() << " " << bulk3.errorbar() << " ";
@@ -702,13 +702,11 @@ void Protein::write_file(long int i) {
     out_result << std::endl;
 
     out_result.close();
-
-
     out_result.close();
 
 
 
-    filename = "BC_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + ".txt";
+    filename = "BC_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
@@ -728,74 +726,39 @@ void Protein::write_file(long int i) {
     out_result << magnetization_sq.mean() << " " << magnetization_sq.errorbar() << " ";
     out_result << magnetization_4.mean() << " " << magnetization_4.errorbar() << " ";
     out_result << i << " ";
-
-    out_result << bulk2.mean() << " " << bulk2.errorbar() << " ";
-    out_result << bulk3.mean() << " " << bulk3.errorbar() << " ";
-    out_result << bulk4.mean() << " " << bulk4.errorbar() << " ";
+	
+	
     out_result << std::endl;
 
     out_result.close();
 
-
-    filename = "R2_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_Homopolymer.txt";
-
-
+	filename = "Counts_E_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
-    //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
-
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-
-    for (auto c : count_R2)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-
-    out_result.close();
-
-    filename = "X_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+	out_result << "N J h steps " << std::endl;
+	out_result << number_of_monomers << " " << J << " " << h << " ";
+	out_result << i << std::endl;
+	for (auto counts : count_E)
+	{
+		out_result << counts.first << " " << counts.second << std::endl;
+	}
+	out_result.close();
 
 
-    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
+	filename = "Counts_M_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+	//filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
-    out_result.open(filename);
-    //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
+	out_result.open(filename);
 
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-
-    for (auto c : count_X)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-
-    out_result.close();
-
-    filename = "Y_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-
-
-    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
-
-    out_result.open(filename);
-    //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
-
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-
-    for (auto c : count_Y)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-
-    out_result.close();
+	out_result << "N J h steps " << std::endl;
+	out_result << number_of_monomers << " " << J << " " << h << " ";
+	out_result << i << std::endl;
+	for (auto counts : count_M)
+	{
+		out_result << counts.first << " " << counts.second << std::endl;
+	}
+	out_result.close();
 
 }
 
@@ -1145,10 +1108,10 @@ void Protein::save_calcs()
     magnetization_4 << 1.0 * current_H_counts / number_of_monomers * 1.0 * current_H_counts / number_of_monomers * 1.0 * current_H_counts / number_of_monomers * 1.0 * current_H_counts / number_of_monomers;
 
 
-    //count_E[E] = count_E[E] + 1;
-    //count_M[current_H_counts] = count_M[current_H_counts] + 1;
+    count_E[E] = count_E[E] + 1;
+    count_M[current_H_counts] = count_M[current_H_counts] + 1;
 
-    //radius();
+    radius();
 
 
 }
