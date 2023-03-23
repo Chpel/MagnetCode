@@ -704,11 +704,11 @@ void Protein::write_file(long int i) {
     out_result.close();
 
 
-    /*out_result.close();
+    out_result.close();
 
 
 
-    filename = "BC_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + ".txt";
+    filename = "BC_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + ".txt";
     //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
     out_result.open(filename);
@@ -796,8 +796,6 @@ void Protein::write_file(long int i) {
     }
 
     out_result.close();
-
-    */
 
 }
 
