@@ -619,49 +619,20 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
         if (i > steps_to_equilibrium && i % 100000 == 0)
         {
-            //radius();
+            radius();
             calc_bulk();
             bulk2 << 1.0*bulk2_now/number_of_monomers;
             bulk3 << 1.0*bulk3_now/number_of_monomers;
             bulk4 << 1.0*bulk4_now/number_of_monomers;
             bulk5 << 1.0*bulk5_now/number_of_monomers;
             bulk6 << 1.0*bulk6_now/number_of_monomers;
-            //coord_form();
+            coord_form();
+			save_calcs();
         }
 
-        //if ( i> steps_to_equilibrium && i%1000000000==0 )
-        if (i > steps_to_equilibrium && i % 1000000 == 0)
+        if ( i> steps_to_equilibrium && i%1000000000==0 )
         {
             write_file(i);
-
-            /*filename = "Counts_E_Ising_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_"+std::to_string(nSimulation)+".txt";
-
-
-            out_result.open(filename);
-
-            out_result << "N J h steps " <<  std::endl;
-            out_result << number_of_monomers << " " << J << " " << h <<  " ";
-            out_result << i << std::endl;
-            for ( auto counts : count_E )
-            {
-                out_result << counts.first << " " << counts.second << std::endl;
-            }
-            out_result.close();
-
-
-            filename = "Counts_M_Ising_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_"+std::to_string(nSimulation)+".txt";
-
-            out_result.open(filename);
-
-            out_result << "N J h steps " <<  std::endl;
-            out_result << number_of_monomers << " " << J << " " << h <<  " ";
-            out_result << i << std::endl;
-            for ( auto counts : count_M )
-            {
-                out_result << counts.first << " " << counts.second << std::endl;
-            }
-            out_result.close();
-*/
 
         }
 
