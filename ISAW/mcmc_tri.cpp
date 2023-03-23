@@ -446,14 +446,14 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     new_E = E - hh;
 
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[start_conformation];
-                    //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
+                    new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
                     if (new_E > 0) break;
                     p1 = exp((-(new_E - E) * J));
                     p_metropolis = std::min(1.0, p1);
                     q_rd = distribution(generator);
                     if (q_rd < p_metropolis) {
                         E = new_E;
-                        //current_H_counts = new_H;
+                        current_H_counts = new_H;
                         sequence_on_lattice[temp] = 0; //делаю здесь, так как проще считать энергию(!!!)
                         sum_X = sum_X + lattice.x_coords[end_conformation] - lattice.x_coords[temp];
                         sum_Y = sum_Y + lattice.y_coords[end_conformation] - lattice.y_coords[temp];
@@ -542,7 +542,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                         //std::cout << "wow" << std::endl;
                         break;
                     }
-                    //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
+                    new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 
                     //p1 = exp(-(new_E - E) * J - (new_H - current_H_counts) * h);
 
