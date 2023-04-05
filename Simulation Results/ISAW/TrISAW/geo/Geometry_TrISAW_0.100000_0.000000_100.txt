@@ -1,0 +1,2 @@
+N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6 steps
+100 0.1 0 1395 42 187.042 0.0644818 179.921 0.0659212 7.12109 0.00450841 0.811558 0.000141029 0.476811 4.72433e-05 0.15545 3.67492e-05 0.0174827 1.276e-05 0 0 0 0 210000000000 
