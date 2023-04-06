@@ -189,8 +189,8 @@ void Protein::count_contacts()
     coord_t  step;
     long int mag = 0;
     for (int i = 0; i < number_of_monomers; i++) {
-        for (int j = 0; j < lattice.ndim2(); j++) {
-            step = lattice.map_of_contacts_int[lattice.ndim2() * current_position + j];
+        for (int j = 0; j < lattice.ndim3(); j++) {
+            step = lattice.map_of_contacts_int[lattice.ndim3() * current_position + j];
             if (sequence_on_lattice[step] != 0 && step != previous_monomers[current_position] && step != next_monomers[current_position])
             {
                 hh = hh + 1;
@@ -213,13 +213,13 @@ bool Protein::IsEndInStuck()
 {
     int hh = 0;
     coord_t  step;
-    for (int j = 0; j < lattice.ndim2(); j++) {
-        step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
+    for (int j = 0; j < lattice.ndim3(); j++) {
+        step = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + j];
         if (sequence_on_lattice[step] != 0) {
             hh = hh + 1;
         }
     }
-    return hh == lattice.ndim2();
+    return hh == lattice.ndim3();
 }
 
 void Protein::Reconnect1(int j) {
@@ -233,7 +233,7 @@ void Protein::Reconnect1(int j) {
 
     //int j = directions[previous_monomers[end_conformation]]; //направление последнего ребра
 
-    long int step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
+    long int step = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + j];
     long int new_end = next_monomers[step];
 
     next_monomers[step] = end_conformation;
@@ -284,7 +284,7 @@ void Protein::Reconnect(int j) {
     //            };
     long int c;
 
-    long int step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
+    long int step = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + j];
     long int new_end = next_monomers[step];
 
     next_monomers[step] = end_conformation;
@@ -405,7 +405,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
             if (rand_path == 0) {//переставляем начало в конец
 
                 step_on_lattice = distribution1(generators1);
-                new_point = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + step_on_lattice];
+                new_point = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + step_on_lattice];
                 //oldspin = sequence_on_lattice[start_conformation];
 
                 if (sequence_on_lattice[new_point] == 0) { //проверка, что в узле нет мономеров
@@ -424,8 +424,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
 
                     //смотрим потери
-                    for (int j = 0; j < lattice.ndim2(); j++) {
-                        step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
+                    for (int j = 0; j < lattice.ndim3(); j++) {
+                        step = lattice.map_of_contacts_int[lattice.ndim3() * temp + j];
                         if (sequence_on_lattice[step] != 0 && step != previous_monomers[temp] && step != next_monomers[temp]) {
                             hh = hh - 1;
 
@@ -433,8 +433,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     }
 
                     //смотрим выигрыш
-                    for (int j = 0; j < lattice.ndim2(); j++) {
-                        step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
+                    for (int j = 0; j < lattice.ndim3(); j++) {
+                        step = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + j];
                         if (sequence_on_lattice[step] != 0 && step != previous_monomers[end_conformation] && step != next_monomers[end_conformation]) {
                             hh = hh + 1;
 
@@ -495,7 +495,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
             else {//переставляем конец в начало
 
                 step_on_lattice = distribution1(generators1);
-                new_point = lattice.map_of_contacts_int[lattice.ndim2() * start_conformation + step_on_lattice];
+                new_point = lattice.map_of_contacts_int[lattice.ndim3() * start_conformation + step_on_lattice];
                 oldspin = sequence_on_lattice[end_conformation];
 
                 if (sequence_on_lattice[new_point] == 0) { //проверка, что в узле нет мономеров
@@ -517,8 +517,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     //next_monomers[end_conformation] = -1;
 
                     //смотрим потери
-                    for (int j = 0; j < lattice.ndim2(); j++) {
-                        step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
+                    for (int j = 0; j < lattice.ndim3(); j++) {
+                        step = lattice.map_of_contacts_int[lattice.ndim3() * temp + j];
                         if (sequence_on_lattice[step] != 0 && step != previous_monomers[temp] && step != next_monomers[temp]) {
                             hh = hh - sequence_on_lattice[temp] * sequence_on_lattice[step];
 
@@ -526,8 +526,8 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     }
                     //std::cout << "losts " << hh <<std::endl;
                     //смотрим выигрыш
-                    for (int j = 0; j < lattice.ndim2(); j++) {
-                        step = lattice.map_of_contacts_int[lattice.ndim2() * start_conformation + j];
+                    for (int j = 0; j < lattice.ndim3(); j++) {
+                        step = lattice.map_of_contacts_int[lattice.ndim3() * start_conformation + j];
                         if (sequence_on_lattice[step] != 0 && step != previous_monomers[start_conformation] && step != next_monomers[start_conformation]) {
                             hh = hh + sequence_on_lattice[start_conformation] * sequence_on_lattice[step];
 
@@ -600,7 +600,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
 
 
             step_on_lattice = distribution1(generators1);
-            new_point = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + step_on_lattice];
+            new_point = lattice.map_of_contacts_int[lattice.ndim3() * end_conformation + step_on_lattice];
             //std:: cout << "try reconnect " << std::endl;
             //проверка, что проверенный узел занят спином
             if (sequence_on_lattice[new_point] != 0 && next_monomers[new_point] != -1 &&
@@ -815,8 +815,8 @@ void Protein::calc_bulk()
     for (int e = 0; e < number_of_monomers; e++)
     {
         k = 0;
-        for (int j = 0; j < lattice.ndim2(); j++) {
-            step = lattice.map_of_contacts_int[lattice.ndim2() * current + j];
+        for (int j = 0; j < lattice.ndim3(); j++) {
+            step = lattice.map_of_contacts_int[lattice.ndim3() * current + j];
             if (sequence_on_lattice[step] != 0) {
                 k += 1;
 

@@ -32,38 +32,36 @@ Lattice::Lattice(long int max_seq_size) {
         n = div(i, lattice_side);
         x = n.rem;
         y = n.quot;
-        for (int j = 0; j < ndim2(); j++) {
-            if (x == 0) {
-                map_of_contacts_int[ndim2() * i + 1] = i + lattice_side - 1;
-            }
-            if (x == (lattice_side - 1)) {
-                map_of_contacts_int[ndim2() * i] = i - (lattice_side - 1);
-            }
-            if (y == 0) {
-                map_of_contacts_int[ndim2() * i + 3] = lattice_side * (lattice_side - 1) + x;
-            }
-            if (y == (lattice_side - 1)) {
-                map_of_contacts_int[ndim2() * i + 2] = x;
-            }
-            if ((y == (lattice_side - 1)) && (x == (lattice_side - 1))) {
-                map_of_contacts_int[ndim2() * i + 4] = 0;
-            }
-            if ((y == (lattice_side - 1)) && (x < (lattice_side - 1))) {
-                map_of_contacts_int[ndim2() * i + 4] = x + 1;
-            }
-            if ((y < (lattice_side - 1)) && (x == (lattice_side - 1))) {
-                map_of_contacts_int[ndim2() * i + 4] = i + 1;
-            }
-            if ((y == 0) && (x == 0)) {
-                map_of_contacts_int[ndim2() * i + 5] = lattice_side * lattice_side - 1;
-            }
-            if ((y == 0) && (x > 0)) {
-                map_of_contacts_int[ndim2() * i + 5] = lattice_side * (lattice_side - 1) + x - 1;
-            }
-            if ((y > 0) && (x == 0)) {
-                map_of_contacts_int[ndim2() * i + 5] = i - 1;
-            }
-        }
+		if (x == 0) {
+			map_of_contacts_int[ndim2() * i + 1] = i + lattice_side - 1;
+		}
+		if (x == (lattice_side - 1)) {
+			map_of_contacts_int[ndim2() * i] = i - (lattice_side - 1);
+		}
+		if (y == 0) {
+			map_of_contacts_int[ndim2() * i + 3] = lattice_side * (lattice_side - 1) + x;
+		}
+		if (y == (lattice_side - 1)) {
+			map_of_contacts_int[ndim2() * i + 2] = x;
+		}
+		if ((y == (lattice_side - 1)) && (x == (lattice_side - 1))) {
+			map_of_contacts_int[ndim2() * i + 4] = 0;
+		}
+		if ((y == (lattice_side - 1)) && (x < (lattice_side - 1))) {
+			map_of_contacts_int[ndim2() * i + 4] = x + 1;
+		}
+		if ((y < (lattice_side - 1)) && (x == (lattice_side - 1))) {
+			map_of_contacts_int[ndim2() * i + 4] = i + 1;
+		}
+		if ((y == 0) && (x == 0)) {
+			map_of_contacts_int[ndim2() * i + 5] = lattice_side * lattice_side - 1;
+		}
+		if ((y == 0) && (x > 0)) {
+			map_of_contacts_int[ndim2() * i + 5] = lattice_side * (lattice_side - 1) + x - 1;
+		}
+		if ((y > 0) && (x == 0)) {
+			map_of_contacts_int[ndim2() * i + 5] = i - 1;
+		}
     }
 }
 
@@ -446,14 +444,14 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     new_E = E - hh;
 
                     //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[start_conformation];
-                    new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
+                    //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
                     if (new_E > 0) break;
                     p1 = exp((-(new_E - E) * J));
                     p_metropolis = std::min(1.0, p1);
                     q_rd = distribution(generator);
                     if (q_rd < p_metropolis) {
                         E = new_E;
-                        current_H_counts = new_H;
+                        //current_H_counts = new_H;
                         sequence_on_lattice[temp] = 0; //делаю здесь, так как проще считать энергию(!!!)
                         sum_X = sum_X + lattice.x_coords[end_conformation] - lattice.x_coords[temp];
                         sum_Y = sum_Y + lattice.y_coords[end_conformation] - lattice.y_coords[temp];
@@ -542,7 +540,7 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                         //std::cout << "wow" << std::endl;
                         break;
                     }
-                    new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
+                    //new_H = current_H_counts + sequence_on_lattice[new_point] - sequence_on_lattice[temp];
 
                     //p1 = exp(-(new_E - E) * J - (new_H - current_H_counts) * h);
 
@@ -635,8 +633,6 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
             write_file(i);
 
         }
-
-
     }
 
 }
@@ -646,86 +642,90 @@ void Protein::write_file(long int i) {
     std::string filename;
     std::ofstream out_result;
 
-    filename = "Geometry_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
-
-    out_result.open(filename);
-    //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
+    filename = "Geometry_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+	out_result.open(filename);
+	
     out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
-    //out_result << "lambda1 err_lambda1 lambda2 err_lambda2 acperical err_aspherical";
-    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6 " << "steps" << std::endl;
-
+    out_result << "lambda1 err_lambda1 lambda2 err_lambda2 acperical err_aspherical ";
+    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6" << " steps" << std::endl;
     out_result << number_of_monomers << " " << J << " " << h << " ";
     out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
-
     out_result << eigs1.mean() << " " << eigs1.errorbar() << " ";
     out_result << eigs2.mean() << " " << eigs2.errorbar() << " ";
     out_result << aratio.mean() << " " << aratio.errorbar() << " ";
-
     out_result << bulk2.mean() << " " << bulk2.errorbar() << " ";
     out_result << bulk3.mean() << " " << bulk3.errorbar() << " ";
     out_result << bulk4.mean() << " " << bulk4.errorbar() << " ";
     out_result << bulk5.mean() << " " << bulk5.errorbar() << " ";
     out_result << bulk6.mean() << " " << bulk6.errorbar() << " ";
-
     out_result << i << " ";
-
     out_result << std::endl;
-
     out_result.close();
     out_result.close();
 
-
-
-    filename = "BC_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
-
-    out_result.open(filename);
-    //out_result << mc_steps<<" " << number_of_monomers << " " << J << " " << h  <<   " ";
+    filename = "BC_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_" + std::to_string(nSimulation) + ".txt";
+	out_result.open(filename);
+	
     out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
     out_result << "mean_e err_mean_e mean_e_sq err_mean_e_sq mean_e_fourth err_mean_e_fourth ";
-    out_result << "mean_m err_mean_m mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth " << std::endl;
-
+    out_result << "mean_m err_mean_m mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth " << " steps" <<  std::endl;
     out_result << number_of_monomers << " " << J << " " << h << " ";
     out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
-
     out_result << energy.mean() << " " << energy.errorbar() << " ";
     out_result << energy_sq.mean() << " " << energy_sq.errorbar() << " ";
     out_result << energy_4.mean() << " " << energy_4.errorbar() << " ";
-
     out_result << magnetization.mean() << " " << magnetization.errorbar() << " ";
     out_result << magnetization_sq.mean() << " " << magnetization_sq.errorbar() << " ";
     out_result << magnetization_4.mean() << " " << magnetization_4.errorbar() << " ";
     out_result << i << " ";
-	
-	
     out_result << std::endl;
-
     out_result.close();
 
-	filename = "Counts_E_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-    //filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
 
+    filename = "R2_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_Homopolymer.txt";
     out_result.open(filename);
-	out_result << "N J h steps " << std::endl;
-	out_result << number_of_monomers << " " << J << " " << h << " ";
-	out_result << i << std::endl;
-	for (auto counts : count_E)
-	{
-		out_result << counts.first << " " << counts.second << std::endl;
-	}
-	out_result.close();
+	
+    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
+    out_result << number_of_monomers << " " << J << " " << h << " ";
+    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
+    for (auto c : count_R2)
+    {
+        out_result << c.first << " " << c.second << std::endl;
+    }
+    out_result.close();
 
+    filename = "X_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+    out_result.open(filename);
 
-	filename = "Counts_M_TrISAW_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-	//filename = "Radius_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_CanonicalIsing.txt";
+    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
+    out_result << number_of_monomers << " " << J << " " << h << " ";
+    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
+    for (auto c : count_X)
+    {
+        out_result << c.first << " " << c.second << std::endl;
+    }
+    out_result.close();
 
+    filename = "Y_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
+    out_result.open(filename);
+
+    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
+    out_result << number_of_monomers << " " << J << " " << h << " ";
+    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
+    for (auto c : count_Y)
+    {
+        out_result << c.first << " " << c.second << std::endl;
+    }
+    out_result.close();
+	
+	
+	filename = "Counts_E_ISAW_triangle_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_"+std::to_string(nSimulation)+".txt";
 	out_result.open(filename);
 
-	out_result << "N J h steps " << std::endl;
-	out_result << number_of_monomers << " " << J << " " << h << " ";
+	out_result << "N J h steps " <<  std::endl;
+	out_result << number_of_monomers << " " << J << " " << h <<  " ";
 	out_result << i << std::endl;
-	for (auto counts : count_M)
+	for ( auto counts : count_E )
 	{
 		out_result << counts.first << " " << counts.second << std::endl;
 	}

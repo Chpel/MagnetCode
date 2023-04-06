@@ -22,7 +22,7 @@ class Lattice {
 public:
     long int lattice_side;
     int ndim() { return 2; }
-    int ndim2() { return 4; }
+    int ndim2() { return 6; }
     Lattice(long int max_seq_size = 10);
     void create_lattice(long int max_seq_size = 100);
     //private:
