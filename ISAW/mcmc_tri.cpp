@@ -175,6 +175,7 @@ Protein::Protein(long int n) {
     coord_form();
     //radius_gyration();
 
+	std::cout << "Triangle lattice: " << lattice.lattice_side * lattice.lattice_side << " monomers, each one has " << lattice.ndim2() << " neighbors." << std::endl;
 }
 
 void Protein::count_contacts()
@@ -647,7 +648,7 @@ void Protein::write_file(long int i) {
 	
     out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
     out_result << "lambda1 err_lambda1 lambda2 err_lambda2 acperical err_aspherical ";
-    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6" << " steps" << std::endl;
+    out_result << "bulk2 err_bulk2 bulk3 err_bulk3 bulk4 err_bulk4 bulk5 err_bulk5 bulk6 err_bulk6 " << "steps" << std::endl;
     out_result << number_of_monomers << " " << J << " " << h << " ";
     out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
     out_result << eigs1.mean() << " " << eigs1.errorbar() << " ";
@@ -668,7 +669,7 @@ void Protein::write_file(long int i) {
 	
     out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq ";
     out_result << "mean_e err_mean_e mean_e_sq err_mean_e_sq mean_e_fourth err_mean_e_fourth ";
-    out_result << "mean_m err_mean_m mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth " << " steps" <<  std::endl;
+    out_result << "mean_m err_mean_m mean_m_sq err_mean_m_sq mean_m_fourth err_mean_m_fourth " << "steps" <<  std::endl;
     out_result << number_of_monomers << " " << J << " " << h << " ";
     out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << " ";
     out_result << energy.mean() << " " << energy.errorbar() << " ";
@@ -680,44 +681,6 @@ void Protein::write_file(long int i) {
     out_result << i << " ";
     out_result << std::endl;
     out_result.close();
-
-
-    filename = "R2_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + "_Homopolymer.txt";
-    out_result.open(filename);
-	
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-    for (auto c : count_R2)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-    out_result.close();
-
-    filename = "X_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-    out_result.open(filename);
-
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-    for (auto c : count_X)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-    out_result.close();
-
-    filename = "Y_ISAW_triangle_" + std::to_string(J) + "_" + std::to_string(h) + "_" + std::to_string(number_of_monomers) + ".txt";
-    out_result.open(filename);
-
-    out_result << "N J h mean_R_sq err_mean_R_sq mean_R_gyr_sq err_mean_R_gyr_sq " << std::endl;
-    out_result << number_of_monomers << " " << J << " " << h << " ";
-    out_result << dists.mean() << " " << dists.errorbar() << " " << gyration.mean() << " " << gyration.errorbar() << std::endl;
-    for (auto c : count_Y)
-    {
-        out_result << c.first << " " << c.second << std::endl;
-    }
-    out_result.close();
-	
 	
 	filename = "Counts_E_ISAW_triangle_"+std::to_string(J)+"_"+std::to_string(number_of_monomers)+"_"+std::to_string(nSimulation)+".txt";
 	out_result.open(filename);
