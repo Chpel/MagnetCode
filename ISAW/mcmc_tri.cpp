@@ -162,7 +162,7 @@ Protein::Protein(long int n) {
     previous_monomers[n - 1] = n - 2;
 
     current_H_counts = n;
-    E = 0;// -(n-1);
+    E = -(n-1);//0
 
 
     //сначала все направления - движение вправо
@@ -187,7 +187,7 @@ void Protein::count_contacts()
     for (int i = 0; i < number_of_monomers; i++) {
         for (int j = 0; j < lattice.ndim2(); j++) {
             step = lattice.map_of_contacts_int[lattice.ndim2() * current_position + j];
-            if (sequence_on_lattice[step] != 0 && step != previous_monomers[current_position] && step != next_monomers[current_position])
+            if (sequence_on_lattice[step] != 0) //&& step != previous_monomers[current_position] && step != next_monomers[current_position])
             {
                 hh = hh + 1;
             }
@@ -422,18 +422,18 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     //смотрим потери
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
-                        if (sequence_on_lattice[step] != 0 && step != previous_monomers[temp] && step != next_monomers[temp]) {
-                            hh = hh - 1;
-
+                        if (sequence_on_lattice[step] != 0)// && step != previous_monomers[temp] && step != next_monomers[temp]) {
+                        {
+							hh = hh - 1;
                         }
                     }
 
                     //смотрим выигрыш
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * end_conformation + j];
-                        if (sequence_on_lattice[step] != 0 && step != previous_monomers[end_conformation] && step != next_monomers[end_conformation]) {
-                            hh = hh + 1;
-
+                        if (sequence_on_lattice[step] != 0)// && step != previous_monomers[end_conformation] && step != next_monomers[end_conformation]) {
+						{
+							hh = hh + 1;
                         }
                     }
 
@@ -515,18 +515,18 @@ void Protein::MC(double J_in, double h_in, int Simulation, long int steps_to_equ
                     //смотрим потери
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * temp + j];
-                        if (sequence_on_lattice[step] != 0 && step != previous_monomers[temp] && step != next_monomers[temp]) {
-                            hh = hh - sequence_on_lattice[temp] * sequence_on_lattice[step];
-
+                        if (sequence_on_lattice[step] != 0)// && step != previous_monomers[temp] && step != next_monomers[temp]) {
+						{    
+							hh = hh - sequence_on_lattice[temp] * sequence_on_lattice[step];
                         }
                     }
                     //std::cout << "losts " << hh <<std::endl;
                     //смотрим выигрыш
                     for (int j = 0; j < lattice.ndim2(); j++) {
                         step = lattice.map_of_contacts_int[lattice.ndim2() * start_conformation + j];
-                        if (sequence_on_lattice[step] != 0 && step != previous_monomers[start_conformation] && step != next_monomers[start_conformation]) {
-                            hh = hh + sequence_on_lattice[start_conformation] * sequence_on_lattice[step];
-
+                        if (sequence_on_lattice[step] != 0)// && step != previous_monomers[start_conformation] && step != next_monomers[start_conformation]) {
+						{
+							hh = hh + sequence_on_lattice[start_conformation] * sequence_on_lattice[step];
                         }
                     }
 
